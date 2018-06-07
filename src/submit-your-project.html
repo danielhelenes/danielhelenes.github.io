@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Helenes</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+  <!-- Header / Navbar -->
+
+  <div id="includeHeader"></div>
+
+  <!-- Showcase -->
+
+  <section id="showcase-submit">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col text-center">
+            <!-- <h1 class=" h3 font-weight-light my-4">
+              FAQ's and submit your project
+            </h1>  -->
+            <h1 class="h4 text-uppercase my-5">Submit your project</h1>
+          </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Form -->
+<br/>
+<div class="container pt-0 px-lg-5 pb-5 mt-5">
+  <div class="mx-auto table-bordered border-light-grey">
+    <h4 class="pl-5 card-header">Personal details</h4>
+    <form id="submit-form" action="https://formspree.io/dribeiro.hi@gmail.com" method="POST" class="mx-auto my-5">
+
+      <!-- name -->
+      <div class="first-field form-row align-items-end mx-2 mx-lg-5">
+        <div class="col-12">
+          <label for="name">Name* </label>
+        </div>
+        <div class="col-12">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <input name="name" type="text" id="inputNameSubmit" class="form-control" placeholder="Enter your name" required>
+          </div>
+        </div>
+      </div>
+      <!-- email -->
+      <div class="form-row align-items-end mx-2 mx-lg-5 my-4">
+        <div class="col-12">
+          <label for="email">Email* </label>
+        </div>
+        <div class="col-12">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            <input type="text" name="email"  id="inputEmailSubmit" class="form-control" placeholder="Enter your email">
+          </div>
+        </div>
+      </div>
+      <!-- phone -->
+      <div class="form-row align-items-end mx-2 mx-lg-5 my-4">
+        <div class="col-12">
+          <label for="phone">Phone* </label>
+        </div>
+        <div class="col-12">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+            <input type="number" name="phone"  id="inputPhone" class="form-control" placeholder="Enter your number">
+          </div>
+        </div>
+      </div>
+      <!-- website -->
+      <div class="form-row align-items-center mx-2 mx-lg-5 my-4">
+        <div class="col-12">
+          <label for="website">Website </label>
+        </div>
+        <div class="col-12 mb-4">
+          <div class="input-group">
+            <span class="input-group-addon">https://</span>
+            <input type="text" name="website"  id="inputWebsite" class="form-control" placeholder="Enter your website">
+          </div>
+        </div>
+      </div>
+
+
+  <h4 class="card-header border pl-5 my-5">Business details</h4>
+
+
+      <div class="form-row align-items-center mx-2 mx-lg-5 my-4">
+        <div class="col-12 col-md-3 mr-md-3 mr-5 mx-lg-0">
+          <label>Business Type* </label>
+        </div>
+          <div id="inputBizType" class="input-group row mb-4 mt-2">
+            <div class="col-12 col-md-3">
+              <input class="checkbox mx-2 my-auto" type="checkbox" name="surf">
+              <label class="form-check-label p-0">Surf</label>
+            </div>
+            <div class="col-12 col-md-3">
+              <input class="checkbox mx-2 my-auto" type="checkbox" name="yoga">
+              <label class="form-check-label p-0">Yoga</label>
+            </div>
+            <div class="col-12 col-md-3">
+              <input class="checkbox mx-2 my-auto" type="checkbox" name="eco-business">
+              <label class="form-check-label p-0">Ecologic</label>
+            </div>
+            <div class="col-12 col-md-3">
+              <input class="checkbox mx-2 my-auto" type="checkbox" name="other">
+              <label class="form-check-label p-0">Other</label>
+            </div>
+
+          </div>
+
+      </div>
+
+
+      <!-- business details -->
+      <div class="form-row align-items-center mx-2 mx-lg-5">
+        <div class="col-12 col-md-3 mr-md-3 mr-5 mx-lg-0">
+        <label for="biz_info">Business Information*</label>
+        </div>
+        <textarea class="form-control mt-2" rows="5" id="biz_info" name="biz_info" placeholder="Please tell us about your business"></textarea>
+      </div>
+
+
+      <!-- expectations -->
+      <div class="form-row align-items-center mx-2 mx-lg-5 mt-4">
+        <div class="col-12 col-md-3 mr-md-3 mr-5 mx-lg-0">
+        <label for="expects">Expectations*</label>
+        </div>
+        <textarea class="form-control mt-2" rows="5" id="expectations" name="expectations" placeholder="Please tell us what you expect to achieve with a new website"></textarea>
+      </div>
+
+      <!-- feedback -->
+      <div class="form-row align-items-center mx-2 mx-lg-5 mt-4">
+        <div class="col-12 col-md-6 mr-md-3 mr-5 mx-lg-0">
+        <label for="expects">What do you think about our business model*</label>
+        </div>
+        <textarea class="form-control mt-2" rows="5" id="feedback" name="feedback" placeholder="What do you think about Pay What you Think it's Fair?"></textarea>
+      </div>
+
+      <!-- classification -->
+      <div class="form-row align-items-center mx-2 mx-lg-5 mt-4">
+        <div class="col-12">
+          <label for="expects">From 1 to 10, how do you rate this website?*</label>
+        </div>
+        <select class="form-control mt-2 w-50" id="rate" name="rate">
+          <option value="select" disabled selected>Choose one...</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+          <div class="container-fluid">
+            <div class="row align-items-center mt-5">
+              <div class="button col mx-lg-4">
+                <button type="submit" class="submit cursor-pointer btn-block btn-primary bg-primary text-light btn-outline-info btn py-3 rounded-0">
+                   SUBMIT YOUR PROJECT
+                </button>
+               </div>
+            </div>
+          </div>
+
+
+    </form>
+  </div>
+</div>
+
+
+  <!-- Footer-->
+
+  <div id="includeFooter"></div>
+
+
+  <!-- scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/includes.js"></script>
+    <script src="js/main.js"></script>
+
+
+
+
+</body>
+</html>
