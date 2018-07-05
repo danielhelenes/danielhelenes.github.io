@@ -23,20 +23,17 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
 // });
 
 
-
-
-
 //Contact Page
 
-
-
   $(document).ready(function() {
-  $('.submit').click(function(e) {
+  $('#contact-form').submit(function(e) {
     e.preventDefault();
     var name = $('#inputName').val();
     var email = $('#inputEmail').val();
     var message = $('#inputMessage').val();
 
+    var data = 'name=' + name + '&email' + email + '&message' + message;
+    console.log(data);
 
     if (!name) {
       $('#inputName').addClass('is-invalid');
@@ -98,8 +95,8 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
     if ($('#inputName').hasClass('is-valid') && $('#inputEmail').hasClass('is-valid') && $('#inputMessage').hasClass('is-valid')){
         console.log('success!')
       $.ajax({
-        method: 'POST',
-        url: '//formspree.io/dribeiro.hi@gmail.com',
+        type: 'POST',
+        url: $('#contact-form').attr('action'),
         data: $('#contact-form').serialize(),
         dataType: 'json',
         beforeSend: function() {
@@ -118,6 +115,96 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
     }
   });
 });
+
+//
+//   $(document).ready(function() {
+//   $('.submit').click(function(e) {
+//     e.preventDefault();
+//     var name = $('#inputName').val();
+//     var email = $('#inputEmail').val();
+//     var message = $('#inputMessage').val();
+//
+//
+//     if (!name) {
+//       $('#inputName').addClass('is-invalid');
+//       $('#inputName').parent().append('<span class="text-danger">Please enter a name!</span>');
+//       $('#inputName').focus(function() {
+//         $('#inputName').parent().find('.text-danger').hide();
+//         $('#inputEmail').parent().find('.text-danger').hide();
+//         $('#inputMessage').parent().find('.text-danger').hide();
+//         $('#inputName').removeClass('is-invalid');
+//         $('#inputEmail').removeClass('is-invalid');
+//         $('#inputMessage').removeClass('is-invalid');
+//       });
+//
+//     }else {
+//       $('#inputName').addClass('is-valid');
+//     }
+//
+//     if (!email || !email.length > 5 || !email.includes('@') || !email.includes('.')) {
+//       $('#inputEmail').addClass('is-invalid');
+//       $('#inputEmail').parent().append('<span class="text-danger">Please enter a valid email!</span>');
+//       $('#inputEmail').focus(function() {
+//         $('#inputName').parent().find('.text-danger').hide();
+//         $('#inputEmail').parent().find('.text-danger').hide();
+//         $('#inputMessage').parent().find('.text-danger').hide();
+//         $('#inputName').removeClass('is-invalid');
+//         $('#inputEmail').removeClass('is-invalid');
+//         $('#inputMessage').removeClass('is-invalid');
+//       });
+//     } else {
+//       $('#inputEmail').addClass('is-valid');
+//     }
+//
+//     if (!message) {
+//       $('#inputMessage').addClass('is-invalid');
+//       $('#inputMessage').parent().append('<span class="text-danger">Please enter a message!</span>');
+//       $('#inputMessage').focus(function() {
+//         $('#inputName').parent().find('.text-danger').hide();
+//         $('#inputEmail').parent().find('.text-danger').hide();
+//         $('#inputMessage').parent().find('.text-danger').hide();
+//         $('#inputName').removeClass('is-invalid');
+//         $('#inputEmail').removeClass('is-invalid');
+//         $('#inputMessage').removeClass('is-invalid');
+//       });
+//     } else if (message.length < 10) {
+//       $('#inputMessage').addClass('is-invalid');
+//       $('#inputMessage').parent().append('<span class="text-danger">Your message is too short! Please enter more than 10 caracters</span>');
+//       $('#inputMessage').focus(function() {
+//         $('#inputName').parent().find('.text-danger').hide();
+//         $('#inputEmail').parent().find('.text-danger').hide();
+//         $('#inputMessage').parent().find('.text-danger').hide();
+//         $('#inputName').removeClass('is-invalid');
+//         $('#inputEmail').removeClass('is-invalid');
+//         $('#inputMessage').removeClass('is-invalid');
+//       });
+//     } else  {
+//       $('#inputMessage').addClass('is-valid');
+//     }
+//
+//     if ($('#inputName').hasClass('is-valid') && $('#inputEmail').hasClass('is-valid') && $('#inputMessage').hasClass('is-valid')){
+//         console.log('success!')
+//       $.ajax({
+//         method: 'POST',
+//         url: '//formspree.io/dribeiro.hi@gmail.com',
+//         data: $('#contact-form').serialize(),
+//         dataType: 'json',
+//         beforeSend: function() {
+//           $('#contact-form').find('.button').append('<div class="alert alert-info mt-5 text-center">Sending message…</div>');
+//         },
+//         success: function() {
+//           $('#contact-form').find('.alert').hide();
+//           $('#contact-form').find('.button').append('<div class="mt-5 alert alert-success text-center">Your message was sucessfuly sent!</div>');
+//           $("#contact-form").get(0).reset();
+//           $('#inputName').removeClass('is-valid');
+//           $('#inputEmail').removeClass('is-valid');
+//           $('#inputMessage').removeClass('is-valid');
+//           $('#contact-form').find('.alert-success').fadeOut(4000, "linear");
+//         }
+//       });
+//     }
+//   });
+// });
 
 
 
@@ -143,7 +230,7 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
 
 
     $(document).ready(function() {
-    $('.submit').one("click", function(e) {
+    $('#submit-form').submit(function(e) {
       console.log('clicked');
       e.preventDefault();
       var name = $('#inputNameSubmit').val();
@@ -262,29 +349,89 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
         $('#rate').hasClass('is-valid')
       ) {
           console.log('success!')
-        $.ajax({
-          method: 'POST',
-          url: '//formspree.io/dribeiro.hi@gmail.com',
-          data: $('#submit-form').serialize(),
-          dataType: 'json',
-          beforeSend: function() {
-            $('#submit-form').find('.button').append('<div class="alert alert-info mt-5 text-center">Sending message…</div>');
-          },
-          success: function() {
-            $('#submit-form').find('.alert').hide();
-            $('#submit-form').find('.button').append('<div class="mt-5 alert alert-success text-center">Your form was sucessfuly submited!</div>');
-            $("#submit-form").get(0).reset();
-            $('#inputNameSubmit').removeClass('is-valid');
-            $('#inputEmailSubmit').removeClass('is-valid');
-            $('#inputPhone').removeClass('is-valid');
-            $('#inputBizType').removeClass('is-valid');
-            $('#biz_info').removeClass('is-valid');
-            $('#expectations').removeClass('is-valid');
-            $('#feedback').removeClass('is-valid');
-            $('#rate').removeClass('is-valid');
-            $('#submit-form').find('.alert-success').fadeOut(4000, "linear");
-          }
-        });
+          // $.post('https://formspree.io/dribeiro.hi@gmail.com', {name: name, email: email})
+
+
+      //   $.post('https://formspree.io/dribeiro.hi@gmail.com',
+      //   {
+      //     name: name,
+      //     email: email,
+      //     phone: phone,
+      //     businessType: businessType,
+      //     biz_info: biz_info,
+      //     expectations: expectations,
+      //     feedback: feedback
+      //   },
+      //   function(data){
+      //     console.log(data);
+      //   }
+      // )
+
+      $.ajax({
+           method: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+           url: $('#submit-form').attr('action'),
+           data: $('#submit-form').serialize(),
+           dataType: 'json'
+       })
+           // using the done promise callback
+           .done(function(data) {
+
+               // log data to the console so we can see
+               console.log(data);
+
+               // here we will handle errors and validation messages
+           });
+
+
+
+        // jqxhr.done(function() {
+        //     $('#submit-form').find('.button').append('<div class="alert alert-info mt-5 text-center">Sending message…</div>');
+        //   });
+        //
+        //   jqxhr.always(function() {
+        //     $('#submit-form').find('.alert').hide();
+        //     $('#submit-form').find('.button').append('<div class="mt-5 alert alert-success text-center">Your form was sucessfuly submited!</div>');
+        //     $("#submit-form").get(0).reset();
+        //     $('#inputNameSubmit').removeClass('is-valid');
+        //     $('#inputEmailSubmit').removeClass('is-valid');
+        //     $('#inputPhone').removeClass('is-valid');
+        //     $('#inputBizType').removeClass('is-valid');
+        //     $('#biz_info').removeClass('is-valid');
+        //     $('#expectations').removeClass('is-valid');
+        //     $('#feedback').removeClass('is-valid');
+        //     $('#rate').removeClass('is-valid');
+        //     $('#submit-form').find('.alert-success').fadeOut(4000, "linear");
+        //
+        //   });
+        //   //
+        //   // jqxhr.fail(function() {
+        //   //
+        //   // })
+        //
+        //
+        // $.ajax({
+        //   method: 'POST',
+        //   url: '//formspree.io/dribeiro.hi@gmail.com',
+        //   data: $('#submit-form').serialize(),
+        //   dataType: 'json',
+        //   beforeSend: function() {
+        //     $('#submit-form').find('.button').append('<div class="alert alert-info mt-5 text-center">Sending message…</div>');
+        //   },
+        //   success: function() {
+        //     $('#submit-form').find('.alert').hide();
+        //     $('#submit-form').find('.button').append('<div class="mt-5 alert alert-success text-center">Your form was sucessfuly submited!</div>');
+        //     $("#submit-form").get(0).reset();
+        //     $('#inputNameSubmit').removeClass('is-valid');
+        //     $('#inputEmailSubmit').removeClass('is-valid');
+        //     $('#inputPhone').removeClass('is-valid');
+        //     $('#inputBizType').removeClass('is-valid');
+        //     $('#biz_info').removeClass('is-valid');
+        //     $('#expectations').removeClass('is-valid');
+        //     $('#feedback').removeClass('is-valid');
+        //     $('#rate').removeClass('is-valid');
+        //     $('#submit-form').find('.alert-success').fadeOut(4000, "linear");
+        //   }
+        // });
       } else {
           $('.first-field').before('<div class="container mb-3"><div class="row"> <span class="col alert alert-warning mx-2 mx-lg-5">Please review fields in red!</span> </div></div>');
           $('html,body').animate({scrollTop: $('#submit-form').parent().offset().top},'slow');

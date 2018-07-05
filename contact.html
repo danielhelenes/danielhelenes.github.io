@@ -32,7 +32,8 @@
   </section>
 
 <section>
-  <form  id="contact-form" action="//formspree.io/dribeiro.hi@gmail.com" method="post" class="mx-auto my-5">
+  <!-- <form  id="contact-form" action="//formspree.io/dribeiro.hi@gmail.com" method="post" class="mx-auto my-5"> -->
+  <form  id="contact-form" action="mailer.php" method="post" class="mx-auto my-5">
   <!-- <form  class="mx-auto my-5"> -->
     <div class="col-md-8 mx-auto py-5">
       <div class="card rounded-0 p-4">
@@ -42,23 +43,23 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <input id="inputName" type="text" class="form-control" placeholder="Name"name="name">
+                <input id="inputName" type="text" class="form-control" placeholder="Name" name="inputName">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <input id="inputEmail" type="text" class="form-control" placeholder="Email" name="email">
+                <input id="inputEmail" type="text" class="form-control" placeholder="Email" name="inputEmail">
               </div>
             </div>
 
 
             <div class="col-md-12">
               <div class="form-group">
-                <textarea id="inputMessage" class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                <textarea id="inputMessage" class="form-control" name="inputMessage" rows="5" placeholder="Message"></textarea>
               </div>
             </div>
             <div class="button col-md-12">
-              <button type="submit" class="submit text-uppercase cursor-pointer btn btn-primary rounded-0 btn-outline-info btn-block">Submit</button>
+              <button id="submit" type="submit" class="submit text-uppercase cursor-pointer btn btn-primary rounded-0 btn-outline-info btn-block">Submit</button>
             </div>
 
 

@@ -17,6 +17,7 @@
     "npm": "^6.1.0",
     "php-serve": "0.0.1",
     "popper.js": "^1.12.9",
+    "sendgrid": "^5.2.3",
     "typed.js": "^2.0.6"
   },
   "devDependencies": {
