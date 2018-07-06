@@ -27,7 +27,7 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
 
   $(document).ready(function() {
   $('#contact-form').submit(function(e) {
-    e.preventDefault();
+    // e.preventDefault();
     var name = $('#inputName').val();
     var email = $('#inputEmail').val();
     var message = $('#inputMessage').val();
