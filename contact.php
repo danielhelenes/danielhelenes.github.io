@@ -38,7 +38,7 @@
     <div class="col-md-8 mx-auto py-5">
       <div class="card rounded-0 p-4">
         <div class="card-body">
-          <h3 class="text-center mb-5">We wouldss love to hear from you</h3>
+          <h3 class="text-center mb-5">We would love to hear from you</h3>
 
           <div class="row">
             <div class="col-md-6">
