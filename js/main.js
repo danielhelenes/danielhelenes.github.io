@@ -24,34 +24,7 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
 
 
 //Contact Page
-
-$(document).ready(function() {
-$('#contact-form').submit(function(e) {
-
-    $.ajax({
-      type: 'POST',
-      url: 'test.php',
-      data: $('#contact-form').serialize(),
-      dataType: 'json',
-      beforeSend: function() {
-        $('#contact-form').find('.button').append('<div class="alert alert-info mt-5 text-center">Sending message…</div>');
-      },
-      success: function(data) {
-        console.log('success!');
-        $('#content').html(data);
-        $('#contact-form').find('.alert').hide();
-        $('#contact-form').find('.button').append('<div class="mt-5 alert alert-success text-center">Your message was sucessfuly sent!</div>');
-        $("#contact-form").get(0).reset();
-        $('#inputName').removeClass('is-valid');
-        $('#inputEmail').removeClass('is-valid');
-        $('#inputMessage').removeClass('is-valid');
-        $('#contact-form').find('.alert-success').fadeOut(4000, "linear");
-      }
-    });
-});
-});
-
-
+//
 //   $(document).ready(function() {
 //   $('#contact-form').submit(function(e) {
 //     // e.preventDefault();
@@ -129,9 +102,8 @@ $('#contact-form').submit(function(e) {
 //         beforeSend: function() {
 //           $('#contact-form').find('.button').append('<div class="alert alert-info mt-5 text-center">Sending message…</div>');
 //         },
-//         success: function(data) {
+//         success: function() {
 //           console.log('success!');
-//           $('#content').html(data);
 //           $('#contact-form').find('.alert').hide();
 //           $('#contact-form').find('.button').append('<div class="mt-5 alert alert-success text-center">Your message was sucessfuly sent!</div>');
 //           $("#contact-form").get(0).reset();
@@ -141,10 +113,6 @@ $('#contact-form').submit(function(e) {
 //           $('#contact-form').find('.alert-success').fadeOut(4000, "linear");
 //         }
 //       });
-//
-//
-//
-//
 //     }
 //   });
 // });
