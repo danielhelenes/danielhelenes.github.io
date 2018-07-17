@@ -93,9 +93,8 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
     }
 
     if ($('#inputName').hasClass('is-valid') && $('#inputEmail').hasClass('is-valid') && $('#inputMessage').hasClass('is-valid')){
-        console.log('success!')
       $.ajax({
-        // type: 'POST',
+        type: 'POST',
         url: $('#contact-form').attr('action'),
         data: $('#contact-form').serialize(),
         dataType: 'json',
@@ -103,6 +102,7 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
           $('#contact-form').find('.button').append('<div class="alert alert-info mt-5 text-center">Sending message…</div>');
         },
         success: function(data) {
+          console.log('success!');
           $('#content').html(data);
           $('#contact-form').find('.alert').hide();
           $('#contact-form').find('.button').append('<div class="mt-5 alert alert-success text-center">Your message was sucessfuly sent!</div>');
