@@ -25,97 +25,129 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
 
 //Contact Page
 
-  $(document).ready(function() {
-  $('#contact-form').submit(function(e) {
-    // e.preventDefault();
-    var name = $('#inputName').val();
-    var email = $('#inputEmail').val();
-    var message = $('#inputMessage').val();
+$(document).ready(function() {
+$('#contact-form').submit(function(e) {
 
-    var data = 'name=' + name + '&email' + email + '&message' + message;
-    console.log(data);
-
-    if (!name) {
-      $('#inputName').addClass('is-invalid');
-      $('#inputName').parent().append('<span class="text-danger">Please enter a name!</span>');
-      $('#inputName').focus(function() {
-        $('#inputName').parent().find('.text-danger').hide();
-        $('#inputEmail').parent().find('.text-danger').hide();
-        $('#inputMessage').parent().find('.text-danger').hide();
-        $('#inputName').removeClass('is-invalid');
-        $('#inputEmail').removeClass('is-invalid');
-        $('#inputMessage').removeClass('is-invalid');
-      });
-
-    }else {
-      $('#inputName').addClass('is-valid');
-    }
-
-    if (!email || !email.length > 5 || !email.includes('@') || !email.includes('.')) {
-      $('#inputEmail').addClass('is-invalid');
-      $('#inputEmail').parent().append('<span class="text-danger">Please enter a valid email!</span>');
-      $('#inputEmail').focus(function() {
-        $('#inputName').parent().find('.text-danger').hide();
-        $('#inputEmail').parent().find('.text-danger').hide();
-        $('#inputMessage').parent().find('.text-danger').hide();
-        $('#inputName').removeClass('is-invalid');
-        $('#inputEmail').removeClass('is-invalid');
-        $('#inputMessage').removeClass('is-invalid');
-      });
-    } else {
-      $('#inputEmail').addClass('is-valid');
-    }
-
-    if (!message) {
-      $('#inputMessage').addClass('is-invalid');
-      $('#inputMessage').parent().append('<span class="text-danger">Please enter a message!</span>');
-      $('#inputMessage').focus(function() {
-        $('#inputName').parent().find('.text-danger').hide();
-        $('#inputEmail').parent().find('.text-danger').hide();
-        $('#inputMessage').parent().find('.text-danger').hide();
-        $('#inputName').removeClass('is-invalid');
-        $('#inputEmail').removeClass('is-invalid');
-        $('#inputMessage').removeClass('is-invalid');
-      });
-    } else if (message.length < 10) {
-      $('#inputMessage').addClass('is-invalid');
-      $('#inputMessage').parent().append('<span class="text-danger">Your message is too short! Please enter more than 10 caracters</span>');
-      $('#inputMessage').focus(function() {
-        $('#inputName').parent().find('.text-danger').hide();
-        $('#inputEmail').parent().find('.text-danger').hide();
-        $('#inputMessage').parent().find('.text-danger').hide();
-        $('#inputName').removeClass('is-invalid');
-        $('#inputEmail').removeClass('is-invalid');
-        $('#inputMessage').removeClass('is-invalid');
-      });
-    } else  {
-      $('#inputMessage').addClass('is-valid');
-    }
-
-    if ($('#inputName').hasClass('is-valid') && $('#inputEmail').hasClass('is-valid') && $('#inputMessage').hasClass('is-valid')){
-      $.ajax({
-        type: 'POST',
-        url: $('#contact-form').attr('action'),
-        data: $('#contact-form').serialize(),
-        dataType: 'json',
-        beforeSend: function() {
-          $('#contact-form').find('.button').append('<div class="alert alert-info mt-5 text-center">Sending message…</div>');
-        },
-        success: function(data) {
-          console.log('success!');
-          $('#content').html(data);
-          $('#contact-form').find('.alert').hide();
-          $('#contact-form').find('.button').append('<div class="mt-5 alert alert-success text-center">Your message was sucessfuly sent!</div>');
-          $("#contact-form").get(0).reset();
-          $('#inputName').removeClass('is-valid');
-          $('#inputEmail').removeClass('is-valid');
-          $('#inputMessage').removeClass('is-valid');
-          $('#contact-form').find('.alert-success').fadeOut(4000, "linear");
-        }
-      });
-    }
-  });
+    $.ajax({
+      type: 'POST',
+      url: 'test.php',
+      data: $('#contact-form').serialize(),
+      dataType: 'json',
+      beforeSend: function() {
+        $('#contact-form').find('.button').append('<div class="alert alert-info mt-5 text-center">Sending message…</div>');
+      },
+      success: function(data) {
+        console.log('success!');
+        $('#content').html(data);
+        $('#contact-form').find('.alert').hide();
+        $('#contact-form').find('.button').append('<div class="mt-5 alert alert-success text-center">Your message was sucessfuly sent!</div>');
+        $("#contact-form").get(0).reset();
+        $('#inputName').removeClass('is-valid');
+        $('#inputEmail').removeClass('is-valid');
+        $('#inputMessage').removeClass('is-valid');
+        $('#contact-form').find('.alert-success').fadeOut(4000, "linear");
+      }
+    });
 });
+});
+
+
+//   $(document).ready(function() {
+//   $('#contact-form').submit(function(e) {
+//     // e.preventDefault();
+//     var name = $('#inputName').val();
+//     var email = $('#inputEmail').val();
+//     var message = $('#inputMessage').val();
+//
+//     var data = 'name=' + name + '&email' + email + '&message' + message;
+//     console.log(data);
+//
+//     if (!name) {
+//       $('#inputName').addClass('is-invalid');
+//       $('#inputName').parent().append('<span class="text-danger">Please enter a name!</span>');
+//       $('#inputName').focus(function() {
+//         $('#inputName').parent().find('.text-danger').hide();
+//         $('#inputEmail').parent().find('.text-danger').hide();
+//         $('#inputMessage').parent().find('.text-danger').hide();
+//         $('#inputName').removeClass('is-invalid');
+//         $('#inputEmail').removeClass('is-invalid');
+//         $('#inputMessage').removeClass('is-invalid');
+//       });
+//
+//     }else {
+//       $('#inputName').addClass('is-valid');
+//     }
+//
+//     if (!email || !email.length > 5 || !email.includes('@') || !email.includes('.')) {
+//       $('#inputEmail').addClass('is-invalid');
+//       $('#inputEmail').parent().append('<span class="text-danger">Please enter a valid email!</span>');
+//       $('#inputEmail').focus(function() {
+//         $('#inputName').parent().find('.text-danger').hide();
+//         $('#inputEmail').parent().find('.text-danger').hide();
+//         $('#inputMessage').parent().find('.text-danger').hide();
+//         $('#inputName').removeClass('is-invalid');
+//         $('#inputEmail').removeClass('is-invalid');
+//         $('#inputMessage').removeClass('is-invalid');
+//       });
+//     } else {
+//       $('#inputEmail').addClass('is-valid');
+//     }
+//
+//     if (!message) {
+//       $('#inputMessage').addClass('is-invalid');
+//       $('#inputMessage').parent().append('<span class="text-danger">Please enter a message!</span>');
+//       $('#inputMessage').focus(function() {
+//         $('#inputName').parent().find('.text-danger').hide();
+//         $('#inputEmail').parent().find('.text-danger').hide();
+//         $('#inputMessage').parent().find('.text-danger').hide();
+//         $('#inputName').removeClass('is-invalid');
+//         $('#inputEmail').removeClass('is-invalid');
+//         $('#inputMessage').removeClass('is-invalid');
+//       });
+//     } else if (message.length < 10) {
+//       $('#inputMessage').addClass('is-invalid');
+//       $('#inputMessage').parent().append('<span class="text-danger">Your message is too short! Please enter more than 10 caracters</span>');
+//       $('#inputMessage').focus(function() {
+//         $('#inputName').parent().find('.text-danger').hide();
+//         $('#inputEmail').parent().find('.text-danger').hide();
+//         $('#inputMessage').parent().find('.text-danger').hide();
+//         $('#inputName').removeClass('is-invalid');
+//         $('#inputEmail').removeClass('is-invalid');
+//         $('#inputMessage').removeClass('is-invalid');
+//       });
+//     } else  {
+//       $('#inputMessage').addClass('is-valid');
+//     }
+//
+//     if ($('#inputName').hasClass('is-valid') && $('#inputEmail').hasClass('is-valid') && $('#inputMessage').hasClass('is-valid')){
+//
+//       $.ajax({
+//         type: 'POST',
+//         url: $('#contact-form').attr('action'),
+//         data: $('#contact-form').serialize(),
+//         dataType: 'json',
+//         beforeSend: function() {
+//           $('#contact-form').find('.button').append('<div class="alert alert-info mt-5 text-center">Sending message…</div>');
+//         },
+//         success: function(data) {
+//           console.log('success!');
+//           $('#content').html(data);
+//           $('#contact-form').find('.alert').hide();
+//           $('#contact-form').find('.button').append('<div class="mt-5 alert alert-success text-center">Your message was sucessfuly sent!</div>');
+//           $("#contact-form").get(0).reset();
+//           $('#inputName').removeClass('is-valid');
+//           $('#inputEmail').removeClass('is-valid');
+//           $('#inputMessage').removeClass('is-valid');
+//           $('#contact-form').find('.alert-success').fadeOut(4000, "linear");
+//         }
+//       });
+//
+//
+//
+//
+//     }
+//   });
+// });
 
 //
 //   $(document).ready(function() {
