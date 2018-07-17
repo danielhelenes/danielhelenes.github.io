@@ -95,7 +95,7 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
     if ($('#inputName').hasClass('is-valid') && $('#inputEmail').hasClass('is-valid') && $('#inputMessage').hasClass('is-valid')){
         console.log('success!')
       $.ajax({
-        type: 'POST',
+        // type: 'POST',
         url: $('#contact-form').attr('action'),
         data: $('#contact-form').serialize(),
         dataType: 'json',
