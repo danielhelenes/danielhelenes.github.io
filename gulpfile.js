@@ -1,18 +1,6 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
-const minifyjs = require('gulp-js-minify');
-
-
-
-//Mnify JS
-
-gulp.task('minify-js', function(){
-  gulp.src('js/main.js')
-    .pipe(minifyjs())
-    .pipe(gulp.dest('js/'));
-});
-
 
 
 // Compile Sass & Inject Into Browser
