@@ -5,13 +5,14 @@ const minifyjs = require('gulp-js-minify');
 
 
 
-//Minify JS
+//Mnify JS
 
 gulp.task('minify-js', function(){
-  gulp.src('./js/main.js')
+  gulp.src('js/main.js')
     .pipe(minifyjs())
-    .pipe(gulp.dest('./js/'));
+    .pipe(gulp.dest('js/'));
 });
+
 
 
 // Compile Sass & Inject Into Browser
