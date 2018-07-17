@@ -102,7 +102,8 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event){
         beforeSend: function() {
           $('#contact-form').find('.button').append('<div class="alert alert-info mt-5 text-center">Sending message…</div>');
         },
-        success: function() {
+        success: function(data) {
+          $('#content').html(data);
           $('#contact-form').find('.alert').hide();
           $('#contact-form').find('.button').append('<div class="mt-5 alert alert-success text-center">Your message was sucessfuly sent!</div>');
           $("#contact-form").get(0).reset();

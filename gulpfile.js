@@ -2,6 +2,23 @@ const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
 
+// PHP
+const connect = require('gulp-connect-php'),
+
+gulp.task('connect-sync', function() {
+  connect.server({}, function (){
+    browserSync({
+      proxy: '127.0.0.1:3000'
+    });
+  });
+
+  gulp.watch('**/*.php').on('change', function () {
+    browserSync.reload();
+  });
+});
+
+
+
 // Compile Sass & Inject Into Browser
 gulp.task('sass', function(){
   return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss','./scss/*.scss'])
